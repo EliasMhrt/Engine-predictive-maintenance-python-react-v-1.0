@@ -38,7 +38,7 @@ export type PredictionResponse = {
   generated_at: string;
 };
 
-const API_URL = "http://localhost:8000";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
 const REQUEST_TIMEOUT_MS = 10000;
 
 async function post<T>(path: string, body: unknown): Promise<T> {
