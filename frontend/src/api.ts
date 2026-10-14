@@ -38,8 +38,8 @@ export type PredictionResponse = {
   generated_at: string;
 };
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
-const REQUEST_TIMEOUT_MS = 10000;
+const API_URL = import.meta.env.VITE_API_URL || "";
+const REQUEST_TIMEOUT_MS = 60000;
 
 async function post<T>(path: string, body: unknown): Promise<T> {
   const controller = new AbortController();
@@ -89,11 +89,14 @@ export async function downloadReportPDF(input: TelemetryInput): Promise<void> {
 
   const blob = await response.blob();
   const url = URL.createObjectURL(blob);
-  const link = document.createElement("a");
-  link.href = url;
-  link.download = `engine_report_${input.engine_id}_${input.cycle}.pdf`;
-  document.body.appendChild(link);
-  link.click();
-  link.remove();
-  URL.revokeObjectURL(url);
+  try {
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `engine_report_${input.engine_id}_${input.cycle}.pdf`;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+  } finally {
+    URL.revokeObjectURL(url);
+  }
 }

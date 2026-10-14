@@ -300,11 +300,11 @@ export default function App() {
                 ))}
               </div>
             ))}
-            {error && <p className="error-message">{error}</p>}
           </div>
         </div>
 
         {/* Right Column: Output Results & Chart */}
+        {error && <p className="error-message">{error}</p>}
         <div style={{ flexGrow: 1, display: "flex", flexDirection: "column", gap: "1rem", minWidth: 10 }}>
           {prediction ? (
             <>

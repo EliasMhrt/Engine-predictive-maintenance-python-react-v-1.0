@@ -217,7 +217,6 @@ function EngineTwinPanel({ rulCycles }: EngineTwinPanelProps) {
         boxShadow: "inset 0 0 20px rgba(0,0,0,0.5)"
       }}>
         {webglSupported && !contextLost ? (
-          <CanvasErrorBoundary>
             <Canvas
               camera={{ position: [0, 2, 7], fov: 45 }}
               // Cap the render scale: the panel spans most of the viewport and
@@ -244,7 +243,6 @@ function EngineTwinPanel({ rulCycles }: EngineTwinPanelProps) {
                 </Suspense>
               </CanvasErrorBoundary>
             </Canvas>
-          </CanvasErrorBoundary>
         ) : contextLost ? (
           <div style={{
             width: "100%",

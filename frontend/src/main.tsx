@@ -35,7 +35,7 @@ class RootErrorBoundary extends Component<{ children: ReactNode }, { failed: boo
           </strong>
           <span style={{ fontSize: '0.85rem', maxWidth: '460px', lineHeight: 1.5 }}>
             Reload the page to restart the application. If this keeps happening,
-            check that the backend is running on port 8000 and that your browser
+            check that the backend server is running and that your browser
             has hardware acceleration enabled.
           </span>
           <button

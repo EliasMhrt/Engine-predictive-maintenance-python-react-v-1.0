@@ -197,7 +197,6 @@ def build_pdf_report(payload: TelemetryInput, result: PredictionResponse) -> byt
     pdf.add_page()
     pdf.set_margin(12)
 
-    # Black & white header
     pdf.set_xy(12, 14)
     pdf.set_font("helvetica", "B", 15)
     pdf.set_text_color(0, 0, 0)

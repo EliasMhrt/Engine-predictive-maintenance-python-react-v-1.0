@@ -5,6 +5,13 @@ dist/
 
 # Environment Variables
 .env
+.env.*
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
 
 # OS Files
 .DS_Store
